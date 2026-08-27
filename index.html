@@ -356,53 +356,108 @@
                 </section>
             </div>
 
-            <section id="contacto" class="mb-10">
-                <div class="flat-card bg-brand-purple text-white p-8 md:p-12">
-                    <div class="text-center mb-10">
-                        <h2 class="text-4xl font-black mb-4 tracking-wider text-white">CONTACTO</h2>
-                        <p class="text-brand-light">¿Interesado en trabajar juntos? Contáctame a través de estos canales.</p>
-                    </div>
+            <section id="contacto" class="mb-20">
+                <div class="flex items-center gap-4 mb-10">
+                    <h2 class="text-3xl font-black text-brand-purple uppercase">Contacto</h2>
+                    <div class="h-1 flex-grow bg-brand-purple"></div>
+                </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        <div class="space-y-6">
-                            <a href="tel:+51910997600" class="flex items-center gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors border border-transparent hover:border-brand-lilac group">
-                                <div class="w-12 h-12 bg-white text-brand-purple rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-phone-alt"></i>
-                                </div>
-                                <div>
-                                    <p class="text-brand-lilac text-sm font-bold uppercase">Teléfono</p>
-                                    <p class="text-xl font-bold">+51 910997600</p>
-                                </div>
-                            </a>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+                    
+                    <!-- Información de Contacto y Botones -->
+                    <div class="flex flex-col justify-center space-y-8">
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4 leading-tight uppercase">
+                                ¡Trabajemos<br>Juntos!
+                            </h3>
+                            <p class="text-lg text-gray-700 font-medium">
+                                Déjame tu mensaje en el formulario o comunícate directamente a través de mis redes y canales directos.
+                            </p>
+                        </div>
 
-                            <a href="mailto:Shbatallanos@gmail.com" class="flex items-center gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors border border-transparent hover:border-brand-lilac group">
-                                <div class="w-12 h-12 bg-white text-brand-purple rounded-full flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <!-- Botón de WhatsApp Integrado -->
+                        <a href="https://wa.me/51910997600" target="_blank" rel="noopener noreferrer" 
+                           class="flat-btn w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-md text-lg">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <span>Escríbenos por WhatsApp</span>
+                        </a>
+
+                        <!-- Datos de contacto adicionales -->
+                        <div class="flat-card p-6 space-y-5 bg-brand-light border-brand-lilac">
+                            <a href="mailto:Shbatallanos@gmail.com" class="flex items-center gap-4 group cursor-pointer">
+                                <div class="w-12 h-12 bg-white border-2 border-brand-purple text-brand-purple rounded-md flex items-center justify-center text-xl group-hover:bg-brand-purple group-hover:text-white transition-colors shadow-[2px_2px_0px_0px_#C084FC]">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <p class="text-brand-lilac text-sm font-bold uppercase">Email</p>
-                                    <p class="text-lg font-bold break-all">Shbatallanos@gmail.com</p>
+                                    <p class="text-brand-purple text-sm font-bold uppercase">Email</p>
+                                    <p class="text-base font-bold text-gray-800 break-all">Shbatallanos@gmail.com</p>
                                 </div>
                             </a>
 
-                            <div class="flex items-center gap-4 p-4 bg-white/10 rounded-lg group">
-                                <div class="w-12 h-12 bg-white text-brand-purple rounded-full flex items-center justify-center text-xl">
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-12 h-12 bg-white border-2 border-brand-purple text-brand-purple rounded-md flex items-center justify-center text-xl group-hover:bg-brand-purple group-hover:text-white transition-colors shadow-[2px_2px_0px_0px_#C084FC]">
                                     <i class="fab fa-instagram"></i>
                                 </div>
                                 <div>
-                                    <p class="text-brand-lilac text-sm font-bold uppercase">Instagram</p>
-                                    <p class="text-lg font-bold">@Sheyla_BC</p>
+                                    <p class="text-brand-purple text-sm font-bold uppercase">Instagram</p>
+                                    <p class="text-base font-bold text-gray-800">@Sheyla_BC</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- QR Placeholder representing the second page of CV -->
-                        <div class="flex justify-center flex-col items-center">
-                            <div class="bg-white p-4 rounded-xl border-4 border-brand-lilac shadow-[8px_8px_0px_0px_#4C1D95] transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=mailto:Shbatallanos@gmail.com&color=4C1D95" alt="Código QR Contacto" class="w-48 h-48">
+                    <!-- Formulario de Contacto -->
+                    <div class="flat-card p-8 sm:p-10 relative bg-white">
+                        
+                        <!-- Alerta de Éxito (Oculta por defecto) -->
+                        <div id="alertaExito" class="hidden absolute inset-0 bg-white rounded-md z-10 flex flex-col items-center justify-center p-8 text-center transition-opacity">
+                            <div class="w-20 h-20 bg-brand-light border-4 border-brand-purple rounded-full flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#C084FC]">
+                                <i class="fas fa-check text-4xl text-brand-purple"></i>
                             </div>
-                            <p class="mt-6 font-bold text-brand-light tracking-widest uppercase">Escanea para contactar</p>
+                            <h3 class="text-3xl font-black text-brand-dark mb-2 uppercase">¡Enviado!</h3>
+                            <p class="text-gray-700 font-semibold text-lg">Gracias por escribirnos. Nos pondremos en contacto contigo pronto.</p>
                         </div>
+
+                        <form id="formularioContacto" class="space-y-5">
+                            <!-- Campo Nombre -->
+                            <div>
+                                <label for="nombre" class="block text-sm font-bold text-brand-dark mb-1 uppercase">Nombre Completo</label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"
+                                    class="w-full px-4 py-3 rounded-md border-2 border-brand-purple bg-brand-light focus:bg-white focus:outline-none focus:ring-0 focus:border-brand-dark transition-colors text-gray-800 placeholder-gray-500 font-medium">
+                            </div>
+
+                            <!-- Campo Teléfono -->
+                            <div>
+                                <label for="telefono" class="block text-sm font-bold text-brand-dark mb-1 uppercase">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" required placeholder="+51 999 999 999"
+                                    class="w-full px-4 py-3 rounded-md border-2 border-brand-purple bg-brand-light focus:bg-white focus:outline-none focus:ring-0 focus:border-brand-dark transition-colors text-gray-800 placeholder-gray-500 font-medium">
+                            </div>
+
+                            <!-- Campo Correo -->
+                            <div>
+                                <label for="correoelectronico" class="block text-sm font-bold text-brand-dark mb-1 uppercase">Correo Electrónico</label>
+                                <input type="email" id="correoelectronico" name="correoelectronico" required placeholder="tucorreo@ejemplo.com"
+                                    class="w-full px-4 py-3 rounded-md border-2 border-brand-purple bg-brand-light focus:bg-white focus:outline-none focus:ring-0 focus:border-brand-dark transition-colors text-gray-800 placeholder-gray-500 font-medium">
+                            </div>
+
+                            <!-- Campo Mensaje -->
+                            <div>
+                                <label for="mensaje" class="block text-sm font-bold text-brand-dark mb-1 uppercase">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" required rows="4" placeholder="¿Cómo podemos ayudarte?"
+                                    class="w-full px-4 py-3 rounded-md border-2 border-brand-purple bg-brand-light focus:bg-white focus:outline-none focus:ring-0 focus:border-brand-dark transition-colors text-gray-800 placeholder-gray-500 font-medium resize-none"></textarea>
+                            </div>
+
+                            <!-- Botón Enviar -->
+                            <button type="submit" id="btnEnviar" 
+                                class="flat-btn w-full mt-4 py-4 rounded-md flex justify-center items-center gap-3 text-lg">
+                                <span>Enviar Mensaje</span>
+                                <!-- Spinner oculto por defecto -->
+                                <svg id="spinner" class="hidden animate-spin h-6 w-6 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </section>
@@ -448,6 +503,64 @@
                     toggleMenu();
                 }
             });
+
+            // Lógica del Formulario de Contacto
+            const formularioContacto = document.getElementById('formularioContacto');
+            if (formularioContacto) {
+                formularioContacto.addEventListener('submit', async function(e) {
+                    e.preventDefault(); // Prevenir el comportamiento por defecto
+
+                    const form = this;
+                    const btnEnviar = document.getElementById('btnEnviar');
+                    const btnTexto = btnEnviar.querySelector('span');
+                    const spinner = document.getElementById('spinner');
+                    const alertaExito = document.getElementById('alertaExito');
+                    
+                    // Cambiar estado del botón a "Enviando..." y deshabilitar
+                    btnTexto.textContent = "Enviando...";
+                    spinner.classList.remove('hidden');
+                    btnEnviar.disabled = true;
+                    btnEnviar.classList.add('opacity-70', 'cursor-not-allowed');
+
+                    // Crear el FormData
+                    const formData = new FormData(form);
+                    
+                    // URL de Google Apps Script
+                    const scriptURL = "https://script.google.com/macros/s/AKfycbyw8raYPBzyKQi8DFNm1AD8y4qGa4sPUdMViM8eMS5ovmsRG62iS-v95PXbgaPBDWDe/exec";
+
+                    try {
+                        // Usar fetch para enviar la data
+                        const response = await fetch(scriptURL, {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        if (response.ok) {
+                            // Éxito: Limpiar form y mostrar alerta
+                            form.reset();
+                            
+                            // Mostrar alerta de éxito
+                            alertaExito.classList.remove('hidden');
+                            
+                            // Ocultar la alerta después de 4 segundos
+                            setTimeout(() => {
+                                alertaExito.classList.add('hidden');
+                            }, 4000);
+                        } else {
+                            throw new Error('Network response was not ok.');
+                        }
+                    } catch (error) {
+                        console.error('Error al enviar el formulario:', error);
+                        alert("Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.");
+                    } finally {
+                        // Devolver el botón a su estado normal
+                        btnTexto.textContent = "Enviar Mensaje";
+                        spinner.classList.add('hidden');
+                        btnEnviar.disabled = false;
+                        btnEnviar.classList.remove('opacity-70', 'cursor-not-allowed');
+                    }
+                });
+            }
         });
     </script>
 </body>
