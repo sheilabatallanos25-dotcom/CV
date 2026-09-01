@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | Sheila Batallanos - Diseñadora Gráfica</title>
+    <title>Portfolio | Sheila Batallanos</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        brand: {
-                            purple: '#6B21A8', // Darker purple
-                            lilac: '#C084FC',  // Lighter lilac
-                            light: '#F3E8FF',  // Very light lilac background
-                            dark: '#4C1D95'    // Deepest purple
-                        }
-                    },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     }
@@ -24,480 +22,516 @@
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
+        :root {
+            /* Fondos y degradados principales */
+            --bg-main: linear-gradient(135deg, #05010e 0%, #0d0620 40%, #170936 75%, #080214 100%);
+            --panel-bg: rgba(22, 13, 43, 0.55);
+            --panel-border: rgba(168, 85, 247, 0.35);
+            --panel-border-glow: rgba(192, 132, 252, 0.6);
+            --panel-shadow: 0 8px 32px 0 rgba(10, 3, 28, 0.7), inset 0 0 15px rgba(168, 85, 247, 0.1);
+
+            /* Elementos interactivos y botones tipo píldora */
+            --pill-bg: linear-gradient(135deg, rgba(124, 93, 179, 0.35) 0%, rgba(68, 45, 110, 0.45) 100%);
+            --pill-border: rgba(192, 132, 252, 0.5);
+            --pill-hover-bg: linear-gradient(135deg, rgba(147, 51, 234, 0.5) 0%, rgba(88, 28, 135, 0.6) 100%);
+
+            /* Textos y acentos */
+            --text-title: #ffffff;
+            --text-body: #d8d0ed;
+            --text-muted: #9f8fc2;
+            --text-accent-gradient: linear-gradient(180deg, #ffffff 0%, #b8a6e8 100%);
+            
+            /* Puntos y líneas de tiempo */
+            --timeline-line: rgba(168, 85, 247, 0.3);
+            --timeline-dot-bg: #ffffff;
+            --timeline-dot-border: rgba(192, 132, 252, 0.9);
+            --timeline-dot-shadow: 0 0 12px #c084fc;
+        }
+
+        /* Aplicación general de estilos */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F3E8FF;
-            color: #1F2937;
+            background: var(--bg-main);
+            background-attachment: fixed;
+            color: var(--text-body);
+            font-family: 'Inter', system-ui, sans-serif;
             scroll-behavior: smooth;
         }
 
-        /* Flat Design utilities */
-        .flat-card {
-            background-color: white;
-            border: 2px solid #6B21A8;
-            border-radius: 0.5rem;
-            box-shadow: 4px 4px 0px 0px #C084FC;
-            transition: all 0.2s ease;
+        /* Tarjetas con efecto Glassmorphism */
+        .glass-card {
+            background: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--panel-border);
+            box-shadow: var(--panel-shadow);
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
 
-        .flat-card:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px 0px #C084FC;
+        .glass-card:hover {
+            border-color: var(--panel-border-glow);
+            box-shadow: 0 10px 40px rgba(147, 51, 234, 0.25), inset 0 0 20px rgba(168, 85, 247, 0.2);
+            transform: translateY(-5px);
         }
 
-        .flat-btn {
-            background-color: #6B21A8;
-            color: white;
-            border: 2px solid #4C1D95;
-            box-shadow: 3px 3px 0px 0px #C084FC;
-            transition: all 0.2s ease;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 0.05em;
+        /* Botones en forma de píldora */
+        .pill-button {
+            background: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            color: var(--text-title);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            padding: 10px 24px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
-        .flat-btn:hover {
-            transform: translate(-1px, -1px);
-            box-shadow: 4px 4px 0px 0px #C084FC;
-            background-color: #581C87;
+        .pill-button:hover {
+            background: var(--pill-hover-bg);
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.4);
+            transform: translateY(-2px);
         }
 
-        .flat-btn:active {
-            transform: translate(2px, 2px);
-            box-shadow: 0px 0px 0px 0px #C084FC;
+        /* Títulos con degradado de texto */
+        .gradient-text {
+            background: var(--text-accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Hamburger Menu Animation */
-        .hamburger-line {
-            transition: all 0.3s ease-in-out;
-            transform-origin: center;
-        }
-        
-        .hamburger-active .line-1 {
-            transform: translateY(8px) rotate(45deg);
-        }
-        
-        .hamburger-active .line-2 {
-            opacity: 0;
-        }
-        
-        .hamburger-active .line-3 {
-            transform: translateY(-8px) rotate(-45deg);
+        /* Indicadores de línea de tiempo */
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            background-color: var(--timeline-dot-bg);
+            border: 3px solid var(--timeline-dot-border);
+            border-radius: 50%;
+            box-shadow: var(--timeline-dot-shadow);
+            flex-shrink: 0;
         }
 
-        /* Mobile Menu Slide */
-        #mobile-menu {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .timeline-line {
+            border-left: 2px solid var(--timeline-line);
+        }
+
+        /* Utilidades para Inputs en Glassmorphism */
+        .glass-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--panel-border);
+            color: var(--text-title);
+            transition: all 0.3s ease;
+        }
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--panel-border-glow);
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
+            outline: none;
+        }
+        .glass-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Transiciones del menú móvil */
+        .menu-open {
+            transform: translateX(0%);
+        }
+        .menu-closed {
             transform: translateX(100%);
-        }
-        
-        #mobile-menu.menu-open {
-            transform: translateX(0);
-        }
-
-        /* Skill Bar */
-        .skill-progress {
-            transition: width 1s ease-out;
-        }
-
-        /* Section styling */
-        section {
-            scroll-margin-top: 5rem;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-lilac selection:text-white">
+<body class="antialiased overflow-x-hidden">
 
-    <nav class="fixed w-full bg-white border-b-2 border-brand-purple z-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo/Name -->
+    <nav class="fixed w-full bg-[var(--panel-bg)] backdrop-blur-xl border-b border-[var(--panel-border)] z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-xl font-bold text-brand-purple tracking-wider">SHEILA.B</a>
+                    <a href="#" class="flex items-center gap-2 text-2xl font-black tracking-tighter text-white uppercase">
+                        <div class="w-6 h-6 bg-gradient-to-tr from-purple-600 to-purple-300 rounded-tl-full rounded-br-full transform rotate-45 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+                        <span class="gradient-text">SHEILA.</span>
+                    </a>
                 </div>
-
+                
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#perfil" class="text-gray-700 hover:text-brand-purple font-semibold transition-colors">Perfil</a>
-                    <a href="#experiencia" class="text-gray-700 hover:text-brand-purple font-semibold transition-colors">Experiencia</a>
-                    <a href="#educacion" class="text-gray-700 hover:text-brand-purple font-semibold transition-colors">Educación</a>
-                    <a href="#habilidades" class="text-gray-700 hover:text-brand-purple font-semibold transition-colors">Habilidades</a>
-                    <a href="#contacto" class="text-gray-700 hover:text-brand-purple font-semibold transition-colors">Contacto</a>
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#experiencia" class="font-medium text-sm text-[var(--text-body)] hover:text-white transition-colors">Experiencia</a>
+                    <a href="#habilidades" class="font-medium text-sm text-[var(--text-body)] hover:text-white transition-colors">Habilidades</a>
+                    <a href="#contacto" class="font-medium text-sm text-[var(--text-body)] hover:text-white transition-colors">Contacto</a>
                 </div>
 
-                <!-- Hamburger Button (Mobile) -->
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="hamburger-btn" class="text-brand-purple focus:outline-none p-2 w-10 h-10 flex flex-col justify-around items-center bg-brand-light rounded border-2 border-brand-purple">
-                        <span class="hamburger-line line-1 block w-6 h-0.5 bg-brand-purple rounded"></span>
-                        <span class="hamburger-line line-2 block w-6 h-0.5 bg-brand-purple rounded"></span>
-                        <span class="hamburger-line line-3 block w-6 h-0.5 bg-brand-purple rounded"></span>
+                    <button id="mobile-menu-btn" class="text-[var(--text-body)] hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="md:hidden fixed inset-0 top-16 bg-brand-purple z-40 h-[calc(100vh-4rem)] flex flex-col">
-            <div class="px-4 pt-8 pb-6 space-y-4 flex-grow">
-                <a href="#perfil" class="mobile-link block px-3 py-4 rounded-md text-xl font-bold text-white hover:bg-brand-dark text-center border-2 border-transparent hover:border-brand-lilac transition-all">Perfil</a>
-                <a href="#experiencia" class="mobile-link block px-3 py-4 rounded-md text-xl font-bold text-white hover:bg-brand-dark text-center border-2 border-transparent hover:border-brand-lilac transition-all">Experiencia</a>
-                <a href="#educacion" class="mobile-link block px-3 py-4 rounded-md text-xl font-bold text-white hover:bg-brand-dark text-center border-2 border-transparent hover:border-brand-lilac transition-all">Educación</a>
-                <a href="#habilidades" class="mobile-link block px-3 py-4 rounded-md text-xl font-bold text-white hover:bg-brand-dark text-center border-2 border-transparent hover:border-brand-lilac transition-all">Habilidades</a>
-                <a href="#contacto" class="mobile-link block px-3 py-4 rounded-md text-xl font-bold text-white hover:bg-brand-dark text-center border-2 border-transparent hover:border-brand-lilac transition-all">Contacto</a>
+        <div id="mobile-menu" class="fixed inset-0 bg-[#0d0620]/95 backdrop-blur-2xl z-40 menu-closed transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-8 border-l border-[var(--panel-border)]">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-[var(--text-body)] hover:text-white text-3xl">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="#experiencia" class="mobile-link text-3xl font-bold gradient-text mb-8">Experiencia.</a>
+            <a href="#habilidades" class="mobile-link text-3xl font-bold gradient-text mb-8">Habilidades.</a>
+            <a href="#contacto" class="mobile-link text-3xl font-bold gradient-text mb-8">Contacto.</a>
+            
+            <div class="mt-auto mb-12 flex gap-4">
+                <a href="https://instagram.com/Sheyla_BC" target="_blank" class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-xl text-white hover:text-purple-300">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/51910997600" target="_blank" class="w-12 h-12 glass-card rounded-full flex items-center justify-center text-xl text-white hover:text-purple-300">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-20 pb-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
-            
-            <!-- Hero Section -->
-            <section id="perfil" class="flex flex-col md:flex-row items-center gap-10 mb-20 pt-10">
-                <div class="w-full md:w-1/3 flex justify-center">
-                    <div class="relative w-64 h-80 flat-card overflow-hidden bg-brand-lilac flex items-end justify-center rounded-t-full">
-                        <!-- Placeholder for Photo -->
-                        <img src="https://placehold.co/400x500/C084FC/ffffff?text=Foto+Sheila" alt="Sheila Yohana Batallanos" class="w-full h-full object-cover opacity-80 mix-blend-multiply">
-                        <div class="absolute inset-0 border-4 border-brand-purple rounded-t-full rounded-b-md pointer-events-none"></div>
-                    </div>
-                </div>
+    <main class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        
+        <!-- Hero Section -->
+        <section id="sobre-mi" class="flex flex-col-reverse lg:flex-row items-center gap-16 lg:gap-8 mb-32 min-h-[75vh]">
+            <!-- Text Content -->
+            <div class="lg:w-[55%] space-y-6 text-center lg:text-left z-10">
+                <h2 class="text-xl md:text-2xl font-bold text-[var(--text-muted)] tracking-widest uppercase text-sm">Sobre Mí</h2>
                 
-                <div class="w-full md:w-2/3 space-y-6">
+                <h1 class="text-[4rem] sm:text-[5.5rem] lg:text-[7rem] font-black leading-[1] tracking-tighter text-white">
+                    ¡Hola, soy<br>
+                    <span class="gradient-text drop-shadow-[0_0_25px_rgba(168,85,247,0.4)]">Sheila.</span>
+                </h1>
+                
+                <div class="w-16 h-1 bg-[var(--panel-border-glow)] mx-auto lg:mx-0 my-6 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+
+                <p class="text-lg font-light text-[var(--text-body)] leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    <strong class="text-white font-semibold">Diseñadora gráfica</strong> enfocada en la creación de piezas visuales atractivas y funcionales para medios digitales e impresos. Especializada en comunicar ideas de forma clara y creativa con un toque moderno.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-6">
+                    <a href="#contacto" class="pill-button px-8 py-3 text-lg">
+                        Contactar
+                    </a>
+                    <a href="https://wa.me/51910997600" target="_blank" class="pill-button px-8 py-3 text-lg bg-transparent border-[var(--panel-border)] hover:bg-[rgba(168,85,247,0.1)]">
+                        <i class="fab fa-whatsapp text-xl"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:w-[45%] flex justify-center relative mt-12 lg:mt-0">
+                <div class="relative w-[300px] h-[300px] sm:w-[420px] sm:h-[420px]">
+                    <!-- Glowing rings -->
+                    <div class="absolute inset-0 bg-[var(--panel-bg)] rounded-full border border-[var(--panel-border-glow)] shadow-[0_0_40px_rgba(147,51,234,0.3)] animate-pulse" style="animation-duration: 4s;"></div>
+                    <div class="absolute inset-6 rounded-full border border-[var(--panel-border)] shadow-[inset_0_0_20px_rgba(168,85,247,0.2)]"></div>
+
+                    <!-- Image -->
+                    <div class="absolute bottom-0 w-full h-[120%] flex justify-center items-end">
+                        <img src="https://github.com/sheilabatallanos25-dotcom/CV/blob/main/3.png?raw=true" 
+                             alt="Sheila Batallanos" 
+                             class="w-[85%] h-full object-cover object-bottom z-10 drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)]"
+                             style="border-bottom-left-radius: 9999px; border-bottom-right-radius: 9999px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiencia" class="mb-32 relative">
+            <!-- Decorative blur blob -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-purple-900/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+
+            <div class="mb-16 text-center lg:text-left">
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4">Experiencia.</h2>
+                <div class="h-1 w-24 bg-[var(--panel-border-glow)] mx-auto lg:mx-0 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-900/40 border border-[var(--panel-border)] text-purple-300 flex items-center justify-center text-xl mb-6 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                        <i class="fas fa-pen-nib"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 leading-tight">Diseño de Identidad Visual</h3>
+                    <p class="text-[var(--panel-border-glow)] text-sm font-semibold mb-6 tracking-wide uppercase">DON SEBAS (Restaurante)</p>
+                    <ul class="list-disc list-outside ml-4 text-[var(--text-body)] space-y-2 text-sm font-light flex-grow">
+                        <li>Creación del identificador visual (logotipo).</li>
+                        <li>Desarrollo de la propuesta gráfica alineada al concepto.</li>
+                        <li>Creación del manual de identidad.</li>
+                        <li>Aplicación de elementos visuales.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 flex flex-col h-full border-[var(--panel-border-glow)] shadow-[0_0_30px_rgba(147,51,234,0.15)] relative overflow-hidden">
+                    <!-- Subtle glow inside the highlighted card -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 blur-[50px]"></div>
+                    
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-400 to-purple-600 text-white flex items-center justify-center text-xl mb-6 shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 leading-tight">Diseño de Packaging</h3>
+                    <p class="text-purple-300 text-sm font-semibold mb-6 tracking-wide uppercase">DON SEBAS (Restaurante)</p>
+                    <ul class="list-disc list-outside ml-4 text-gray-200 space-y-2 text-sm font-light flex-grow">
+                        <li>Diseño de empaques personalizados para productos.</li>
+                        <li>Desarrollo de propuestas gráficas alineadas a la identidad visual.</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-900/40 border border-[var(--panel-border)] text-purple-300 flex items-center justify-center text-xl mb-6 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2 leading-tight">Campaña "Julio se prende"</h3>
+                    <p class="text-[var(--panel-border-glow)] text-sm font-semibold mb-6 tracking-wide uppercase">DON SEBAS (Restaurante)</p>
+                    <ul class="list-disc list-outside ml-4 text-[var(--text-body)] space-y-2 text-sm font-light flex-grow">
+                        <li>Desarrollo del concepto creativo de la campaña.</li>
+                        <li>Diseño de piezas gráficas promocionales para redes sociales.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="habilidades" class="mb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                
+                <!-- Educación con línea de tiempo -->
+                <div class="lg:col-span-1">
+                    <div class="mb-10">
+                        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tighter mb-4">Educación.</h2>
+                        <div class="h-1 w-16 bg-[var(--panel-border-glow)] shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+                    </div>
+                    
+                    <!-- Timeline Estructura -->
+                    <div class="pl-3 relative mt-8">
+                        <div class="timeline-line absolute left-[5px] top-2 bottom-0"></div>
+                        
+                        <!-- Item Timeline -->
+                        <div class="relative pl-8 pb-8">
+                            <div class="timeline-dot absolute left-[-6px] top-1.5"></div>
+                            <div class="glass-card p-6 relative">
+                                <span class="text-xs font-bold text-[var(--panel-border-glow)] uppercase tracking-wider mb-2 block">2025 - 2026</span>
+                                <h3 class="text-lg font-bold text-white mb-1">Diseño Gráfico</h3>
+                                <p class="text-sm text-[var(--text-muted)] mb-3">Digital Publicitario</p>
+                                <p class="text-xs text-[var(--text-body)] font-light border-t border-[var(--panel-border)] pt-3 mt-3">
+                                    Instituto de Informática UNSA<br>
+                                    <span class="text-purple-300">Arequipa - Perú</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold text-white mb-5">Habilidades Blandas</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="pill-button text-sm py-2 px-4 border-[rgba(255,255,255,0.1)] hover:border-[var(--panel-border-glow)]">Proactiva</span>
+                            <span class="pill-button text-sm py-2 px-4 border-[rgba(255,255,255,0.1)] hover:border-[var(--panel-border-glow)]">Colaboradora</span>
+                            <span class="pill-button text-sm py-2 px-4 border-[rgba(255,255,255,0.1)] hover:border-[var(--panel-border-glow)]">Versátil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Software e Idiomas -->
+                <div class="lg:col-span-2">
+                    <div class="mb-10">
+                        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tighter mb-4">Software & Idiomas.</h2>
+                        <div class="h-1 w-24 bg-[var(--panel-border-glow)] shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <!-- Software -->
+                        <div class="glass-card p-8">
+                            <ul class="space-y-6">
+                                <li class="flex items-center gap-4 text-[var(--text-body)] group cursor-default">
+                                    <div class="w-10 h-10 bg-[rgba(255,124,0,0.1)] border border-[#FF7C00]/50 text-[#FF7C00] flex items-center justify-center rounded-lg text-sm font-bold shadow-[0_0_10px_rgba(255,124,0,0.2)] group-hover:bg-[#FF7C00] group-hover:text-white transition-all">Ai</div>
+                                    <span class="font-medium group-hover:text-white transition-colors">Adobe Illustrator</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-[var(--text-body)] group cursor-default">
+                                    <div class="w-10 h-10 bg-[rgba(49,168,255,0.1)] border border-[#31A8FF]/50 text-[#31A8FF] flex items-center justify-center rounded-lg text-sm font-bold shadow-[0_0_10px_rgba(49,168,255,0.2)] group-hover:bg-[#31A8FF] group-hover:text-white transition-all">Ps</div>
+                                    <span class="font-medium group-hover:text-white transition-colors">Adobe Photoshop</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-[var(--text-body)] group cursor-default">
+                                    <div class="w-10 h-10 bg-[rgba(255,51,102,0.1)] border border-[#FF3366]/50 text-[#FF3366] flex items-center justify-center rounded-lg text-sm font-bold shadow-[0_0_10px_rgba(255,51,102,0.2)] group-hover:bg-[#FF3366] group-hover:text-white transition-all">Id</div>
+                                    <span class="font-medium group-hover:text-white transition-colors">Adobe InDesign</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-[var(--text-body)] group cursor-default">
+                                    <div class="w-10 h-10 bg-[rgba(40,199,111,0.1)] border border-[#28C76F]/50 text-[#28C76F] flex items-center justify-center rounded-lg text-sm font-bold shadow-[0_0_10px_rgba(40,199,111,0.2)] group-hover:bg-[#28C76F] group-hover:text-white transition-all"><i class="fas fa-pen-fancy"></i></div>
+                                    <span class="font-medium group-hover:text-white transition-colors">Corel Draw</span>
+                                </li>
+                                <li class="flex items-center gap-4 text-[var(--text-body)] group cursor-default">
+                                    <div class="w-10 h-10 bg-[rgba(0,168,225,0.1)] border border-[#00A8E1]/50 text-[#00A8E1] flex items-center justify-center rounded-lg text-sm font-bold shadow-[0_0_10px_rgba(0,168,225,0.2)] group-hover:bg-[#00A8E1] group-hover:text-white transition-all"><i class="fas fa-cube"></i></div>
+                                    <span class="font-medium group-hover:text-white transition-colors">Sketchup</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Idiomas -->
+                        <div class="space-y-6">
+                            <div class="glass-card p-6 relative overflow-hidden border-[var(--panel-border-glow)]">
+                                <div class="absolute -right-4 -top-4 w-24 h-24 bg-purple-600/20 blur-[20px] rounded-full"></div>
+                                <h4 class="font-bold text-2xl text-white mb-3">Español</h4>
+                                <span class="pill-button text-xs py-1.5 px-3 border-purple-400/50">Idioma Nativo</span>
+                            </div>
+                            <div class="glass-card p-6">
+                                <h4 class="font-bold text-2xl text-white mb-3">Inglés</h4>
+                                <span class="inline-block bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[var(--text-muted)] text-xs px-3 py-1.5 rounded-full font-semibold uppercase tracking-wider">Básico</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="mb-10">
+            <div class="mb-16 text-center lg:text-left">
+                <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4">Contacto.</h2>
+                <div class="h-1 w-24 bg-[var(--panel-border-glow)] mx-auto lg:mx-0 shadow-[0_0_10px_rgba(168,85,247,0.5)]"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                
+                <!-- Información de Contacto -->
+                <div class="flex flex-col justify-center space-y-10">
                     <div>
-                        <h1 class="text-4xl md:text-6xl font-black text-brand-purple uppercase tracking-tight mb-2">Sheila Yohana<br>Batallanos Caceres</h1>
-                        <h2 class="text-2xl font-bold text-brand-lilac uppercase tracking-widest border-b-4 border-brand-purple inline-block pb-1">Diseñadora Gráfica</h2>
-                    </div>
-                    
-                    <p class="text-lg text-gray-700 leading-relaxed max-w-2xl bg-white p-6 rounded-lg border-2 border-brand-purple relative">
-                        <span class="absolute -top-4 -left-4 text-4xl text-brand-lilac"><i class="fas fa-quote-left"></i></span>
-                        Soy diseñadora gráfica enfocada en la creación de piezas visuales atractivas y funcionales para medios digitales e impresos. Me interesa desarrollar soluciones visuales que comuniquen ideas de forma clara y creativa, utilizando herramientas de diseño y principios de composición, color y tipografía.
-                    </p>
-
-                    <div class="flex gap-4 pt-4">
-                        <a href="#contacto" class="flat-btn px-6 py-3 rounded-md inline-block">Contactar</a>
-                        <a href="#" class="bg-white text-brand-purple border-2 border-brand-purple font-bold px-6 py-3 rounded-md shadow-[3px_3px_0px_0px_#C084FC] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_#C084FC] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[0px_0px_0px_0px_#C084FC] transition-all uppercase tracking-wide">Descargar CV</a>
-                    </div>
-                </div>
-            </section>
-
-            <section id="experiencia" class="mb-20">
-                <div class="flex items-center gap-4 mb-10">
-                    <h2 class="text-3xl font-black text-brand-purple uppercase">Experiencia</h2>
-                    <div class="h-1 flex-grow bg-brand-purple"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Job 1 -->
-                    <div class="flat-card p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-brand-dark">Diseño de Identidad Visual</h3>
-                            <span class="bg-brand-lilac text-white text-xs font-bold px-2 py-1 rounded border border-brand-purple">DON SEBAS</span>
-                        </div>
-                        <p class="text-sm font-semibold text-gray-500 mb-4 pb-2 border-b-2 border-brand-light">Restaurante</p>
-                        <ul class="space-y-2 flex-grow text-gray-700">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-play text-brand-lilac mt-1 text-xs"></i>
-                                <span>Creación del identificador visual (logotipo) de la marca.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-play text-brand-lilac mt-1 text-xs"></i>
-                                <span>Desarrollo de la propuesta gráfica alineada al concepto del restaurante.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-play text-brand-lilac mt-1 text-xs"></i>
-                                <span>Creación del manual de identidad de la marca.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-play text-brand-lilac mt-1 text-xs"></i>
-                                <span>Aplicación de elementos visuales para fortalecer la identidad.</span>
-                            </li>
-                        </ul>
+                        <h3 class="text-4xl md:text-5xl font-black gradient-text mb-6 leading-tight">
+                            ¡Trabajemos<br>Juntos!
+                        </h3>
+                        <p class="text-lg text-[var(--text-body)] font-light leading-relaxed">
+                            Déjame tu mensaje en el formulario o comunícate directamente a través de mis redes para dar vida a tus ideas.
+                        </p>
                     </div>
 
-                    <!-- Job 2 -->
-                    <div class="flat-card p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-brand-dark">Diseño de Packaging</h3>
-                            <span class="bg-brand-lilac text-white text-xs font-bold px-2 py-1 rounded border border-brand-purple">DON SEBAS</span>
-                        </div>
-                        <p class="text-sm font-semibold text-gray-500 mb-4 pb-2 border-b-2 border-brand-light">Restaurante</p>
-                        <ul class="space-y-2 flex-grow text-gray-700">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-play text-brand-lilac mt-1 text-xs"></i>
-                                <span>Diseño de empaques personalizados para productos del restaurante.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-play text-brand-lilac mt-1 text-xs"></i>
-                                <span>Desarrollo de propuestas gráficas alineadas a la identidad visual.</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <!-- Botón de WhatsApp Integrado -->
+                    <a href="https://wa.me/51910997600" target="_blank" rel="noopener noreferrer" 
+                       class="pill-button py-4 text-lg w-full md:w-max bg-transparent border-[var(--panel-border-glow)] hover:bg-[rgba(168,85,247,0.15)]">
+                        <i class="fab fa-whatsapp text-2xl text-[#25D366]"></i>
+                        <span>Escríbenos por WhatsApp</span>
+                    </a>
 
-                    <!-- Job 3 -->
-                    <div class="flat-card p-6 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-brand-dark">Campaña Publicitaria</h3>
-                            <span class="bg-brand-lilac text-white text-xs font-bold px-2 py-1 rounded border border-brand-purple">DON SEBAS</span>
-                        </div>
-                        <p class="text-sm font-semibold text-gray-500 mb-4 pb-2 border-b-2 border-brand-light">"JULIO SE PRENDE" (Restaurante)</p>
-                        <ul class="space-y-2 flex-grow text-gray-700">
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-play text-brand-lilac mt-1 text-xs"></i>
-                                <span>Desarrollo del concepto creativo de la campaña.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fas fa-play text-brand-lilac mt-1 text-xs"></i>
-                                <span>Diseño de piezas gráficas promocionales para redes sociales.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
-                <!-- Education -->
-                <section id="educacion">
-                    <div class="flex items-center gap-4 mb-8">
-                        <h2 class="text-3xl font-black text-brand-purple uppercase">Educación</h2>
-                        <div class="h-1 flex-grow bg-brand-purple"></div>
-                    </div>
-
-                    <div class="flat-card p-6 relative overflow-hidden">
-                        <div class="absolute -right-4 -top-4 text-8xl text-brand-light opacity-50 pointer-events-none">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="relative z-10">
-                            <span class="inline-block bg-brand-purple text-white font-bold py-1 px-3 rounded mb-4 border border-brand-dark shadow-[2px_2px_0px_0px_#C084FC]">2025 - 2026</span>
-                            <h3 class="text-2xl font-bold text-brand-dark mb-2">Diseño Gráfico</h3>
-                            <p class="text-brand-lilac font-bold mb-4 uppercase tracking-wide">(Digital Publicitario)</p>
-                            <p class="text-gray-700 font-semibold mb-1"><i class="fas fa-university text-brand-purple mr-2"></i>Instituto de informática de la UNSA</p>
-                            <p class="text-gray-500 text-sm"><i class="fas fa-map-marker-alt text-brand-purple mr-2"></i>AREQUIPA - PERÚ</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Software Skills -->
-                <section id="habilidades">
-                    <div class="flex items-center gap-4 mb-8">
-                        <h2 class="text-3xl font-black text-brand-purple uppercase">Software</h2>
-                        <div class="h-1 flex-grow bg-brand-purple"></div>
-                    </div>
-
-                    <div class="flat-card p-6">
-                        <div class="grid grid-cols-2 gap-4">
-                            <!-- Software Item -->
-                            <div class="flex items-center p-3 border-2 border-brand-light rounded hover:border-brand-lilac transition-colors bg-white">
-                                <div class="w-10 h-10 bg-[#FF7C00] rounded text-white flex items-center justify-center font-bold text-lg mr-3">Ai</div>
-                                <span class="font-bold text-gray-800 text-sm">Illustrator</span>
+                    <!-- Datos de contacto adicionales -->
+                    <div class="flex flex-col gap-6">
+                        <a href="mailto:Shbatallanos@gmail.com" class="flex items-center gap-6 group cursor-pointer">
+                            <div class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-xl text-[var(--text-muted)] group-hover:text-purple-300 group-hover:border-[var(--panel-border-glow)] transition-all">
+                                <i class="fas fa-envelope"></i>
                             </div>
-                            <!-- Software Item -->
-                            <div class="flex items-center p-3 border-2 border-brand-light rounded hover:border-brand-lilac transition-colors bg-white">
-                                <div class="w-10 h-10 bg-[#00A8FF] rounded text-white flex items-center justify-center font-bold text-lg mr-3">Ps</div>
-                                <span class="font-bold text-gray-800 text-sm">Photoshop</span>
+                            <div>
+                                <p class="text-[var(--text-muted)] text-xs font-bold uppercase tracking-wider">Email</p>
+                                <p class="text-base font-medium text-white break-all">Shbatallanos@gmail.com</p>
                             </div>
-                             <!-- Software Item -->
-                            <div class="flex items-center p-3 border-2 border-brand-light rounded hover:border-brand-lilac transition-colors bg-white">
-                                <div class="w-10 h-10 bg-[#FF3366] rounded text-white flex items-center justify-center font-bold text-lg mr-3">Id</div>
-                                <span class="font-bold text-gray-800 text-sm">InDesign</span>
-                            </div>
-                            <!-- Software Item -->
-                            <div class="flex items-center p-3 border-2 border-brand-light rounded hover:border-brand-lilac transition-colors bg-white">
-                                <div class="w-10 h-10 bg-green-500 rounded text-white flex items-center justify-center font-bold text-lg mr-3"><i class="fas fa-pencil-ruler"></i></div>
-                                <span class="font-bold text-gray-800 text-sm">Corel Draw</span>
-                            </div>
-                            <!-- Software Item -->
-                            <div class="flex items-center p-3 border-2 border-brand-light rounded hover:border-brand-lilac transition-colors bg-white">
-                                <div class="w-10 h-10 bg-red-500 rounded text-white flex items-center justify-center font-bold text-lg mr-3"><i class="fas fa-cube"></i></div>
-                                <span class="font-bold text-gray-800 text-sm">SketchUp</span>
-                            </div>
-                            <!-- Software Item -->
-                            <div class="flex items-center p-3 border-2 border-brand-light rounded hover:border-brand-lilac transition-colors bg-white">
-                                <div class="w-10 h-10 bg-blue-600 rounded text-white flex items-center justify-center font-bold text-lg mr-3"><i class="fab fa-microsoft"></i></div>
-                                <span class="font-bold text-gray-800 text-sm">MS Office</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
-                <!-- Soft Skills -->
-                <section>
-                    <div class="flex items-center gap-4 mb-8">
-                        <h2 class="text-2xl font-black text-brand-purple uppercase">Habilidades</h2>
-                        <div class="h-1 flex-grow bg-brand-purple"></div>
-                    </div>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-white border-2 border-brand-purple px-6 py-3 rounded-full font-bold text-brand-dark shadow-[3px_3px_0px_0px_#C084FC]">Proactiva</div>
-                        <div class="bg-white border-2 border-brand-purple px-6 py-3 rounded-full font-bold text-brand-dark shadow-[3px_3px_0px_0px_#C084FC]">Colaboradora</div>
-                        <div class="bg-white border-2 border-brand-purple px-6 py-3 rounded-full font-bold text-brand-dark shadow-[3px_3px_0px_0px_#C084FC]">Versátil</div>
-                    </div>
-                </section>
-
-                <!-- Languages -->
-                <section>
-                    <div class="flex items-center gap-4 mb-8">
-                        <h2 class="text-2xl font-black text-brand-purple uppercase">Idiomas</h2>
-                        <div class="h-1 flex-grow bg-brand-purple"></div>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="bg-white p-4 border-2 border-brand-light rounded flex justify-between items-center">
-                            <span class="font-bold text-gray-800">Español</span>
-                            <span class="bg-brand-purple text-white text-xs px-2 py-1 rounded border border-brand-dark">Nativo</span>
-                        </div>
-                        <div class="bg-white p-4 border-2 border-brand-light rounded flex justify-between items-center">
-                            <span class="font-bold text-gray-800">Inglés</span>
-                            <span class="bg-brand-lilac text-white text-xs px-2 py-1 rounded border border-brand-purple">Básico</span>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <section id="contacto" class="mb-20">
-                <div class="flex items-center gap-4 mb-10">
-                    <h2 class="text-3xl font-black text-brand-purple uppercase">Contacto</h2>
-                    <div class="h-1 flex-grow bg-brand-purple"></div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-                    
-                    <!-- Información de Contacto y Botones -->
-                    <div class="flex flex-col justify-center space-y-8">
-                        <div>
-                            <h3 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4 leading-tight uppercase">
-                                ¡Trabajemos<br>Juntos!
-                            </h3>
-                            <p class="text-lg text-gray-700 font-medium">
-                                Déjame tu mensaje en el formulario o comunícate directamente a través de mis redes y canales directos.
-                            </p>
-                        </div>
-
-                        <!-- Botón de WhatsApp Integrado -->
-                        <a href="https://wa.me/51910997600" target="_blank" rel="noopener noreferrer" 
-                           class="flat-btn w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-md text-lg">
-                            <i class="fab fa-whatsapp text-2xl"></i>
-                            <span>Escríbenos por WhatsApp</span>
                         </a>
 
-                        <!-- Datos de contacto adicionales -->
-                        <div class="flat-card p-6 space-y-5 bg-brand-light border-brand-lilac">
-                            <a href="mailto:Shbatallanos@gmail.com" class="flex items-center gap-4 group cursor-pointer">
-                                <div class="w-12 h-12 bg-white border-2 border-brand-purple text-brand-purple rounded-md flex items-center justify-center text-xl group-hover:bg-brand-purple group-hover:text-white transition-colors shadow-[2px_2px_0px_0px_#C084FC]">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <p class="text-brand-purple text-sm font-bold uppercase">Email</p>
-                                    <p class="text-base font-bold text-gray-800 break-all">Shbatallanos@gmail.com</p>
-                                </div>
-                            </a>
-
-                            <div class="flex items-center gap-4 group">
-                                <div class="w-12 h-12 bg-white border-2 border-brand-purple text-brand-purple rounded-md flex items-center justify-center text-xl group-hover:bg-brand-purple group-hover:text-white transition-colors shadow-[2px_2px_0px_0px_#C084FC]">
-                                    <i class="fab fa-instagram"></i>
-                                </div>
-                                <div>
-                                    <p class="text-brand-purple text-sm font-bold uppercase">Instagram</p>
-                                    <p class="text-base font-bold text-gray-800">@Sheyla_BC</p>
-                                </div>
+                        <a href="https://instagram.com/Sheyla_BC" target="_blank" class="flex items-center gap-6 group cursor-pointer">
+                            <div class="w-14 h-14 glass-card rounded-full flex items-center justify-center text-xl text-[var(--text-muted)] group-hover:text-purple-300 group-hover:border-[var(--panel-border-glow)] transition-all">
+                                <i class="fab fa-instagram"></i>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Formulario de Contacto -->
-                    <div class="flat-card p-8 sm:p-10 relative bg-white">
-                        
-                        <!-- Alerta de Éxito (Oculta por defecto) -->
-                        <div id="alertaExito" class="hidden absolute inset-0 bg-white rounded-md z-10 flex flex-col items-center justify-center p-8 text-center transition-opacity">
-                            <div class="w-20 h-20 bg-brand-light border-4 border-brand-purple rounded-full flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#C084FC]">
-                                <i class="fas fa-check text-4xl text-brand-purple"></i>
-                            </div>
-                            <h3 class="text-3xl font-black text-brand-dark mb-2 uppercase">¡Enviado!</h3>
-                            <p class="text-gray-700 font-semibold text-lg">Gracias por escribirnos. Nos pondremos en contacto contigo pronto.</p>
-                        </div>
-
-                        <form id="formularioContacto" class="space-y-5">
-                            <!-- Campo Nombre -->
                             <div>
-                                <label for="nombre" class="block text-sm font-bold text-brand-dark mb-1 uppercase">Nombre Completo</label>
-                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"
-                                    class="w-full px-4 py-3 rounded-md border-2 border-brand-purple bg-brand-light focus:bg-white focus:outline-none focus:ring-0 focus:border-brand-dark transition-colors text-gray-800 placeholder-gray-500 font-medium">
+                                <p class="text-[var(--text-muted)] text-xs font-bold uppercase tracking-wider">Instagram</p>
+                                <p class="text-base font-medium text-white">@Sheyla_BC</p>
                             </div>
-
-                            <!-- Campo Teléfono -->
-                            <div>
-                                <label for="telefono" class="block text-sm font-bold text-brand-dark mb-1 uppercase">Teléfono</label>
-                                <input type="tel" id="telefono" name="telefono" required placeholder="+51 999 999 999"
-                                    class="w-full px-4 py-3 rounded-md border-2 border-brand-purple bg-brand-light focus:bg-white focus:outline-none focus:ring-0 focus:border-brand-dark transition-colors text-gray-800 placeholder-gray-500 font-medium">
-                            </div>
-
-                            <!-- Campo Correo -->
-                            <div>
-                                <label for="correoelectronico" class="block text-sm font-bold text-brand-dark mb-1 uppercase">Correo Electrónico</label>
-                                <input type="email" id="correoelectronico" name="correoelectronico" required placeholder="tucorreo@ejemplo.com"
-                                    class="w-full px-4 py-3 rounded-md border-2 border-brand-purple bg-brand-light focus:bg-white focus:outline-none focus:ring-0 focus:border-brand-dark transition-colors text-gray-800 placeholder-gray-500 font-medium">
-                            </div>
-
-                            <!-- Campo Mensaje -->
-                            <div>
-                                <label for="mensaje" class="block text-sm font-bold text-brand-dark mb-1 uppercase">Mensaje</label>
-                                <textarea id="mensaje" name="mensaje" required rows="4" placeholder="¿Cómo podemos ayudarte?"
-                                    class="w-full px-4 py-3 rounded-md border-2 border-brand-purple bg-brand-light focus:bg-white focus:outline-none focus:ring-0 focus:border-brand-dark transition-colors text-gray-800 placeholder-gray-500 font-medium resize-none"></textarea>
-                            </div>
-
-                            <!-- Botón Enviar -->
-                            <button type="submit" id="btnEnviar" 
-                                class="flat-btn w-full mt-4 py-4 rounded-md flex justify-center items-center gap-3 text-lg">
-                                <span>Enviar Mensaje</span>
-                                <!-- Spinner oculto por defecto -->
-                                <svg id="spinner" class="hidden animate-spin h-6 w-6 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                </svg>
-                            </button>
-                        </form>
+                        </a>
                     </div>
                 </div>
-            </section>
-        </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="glass-card p-8 sm:p-10 relative">
+                    
+                    <!-- Alerta de Éxito -->
+                    <div id="alertaExito" class="hidden absolute inset-0 bg-[#0d0620]/95 backdrop-blur-md rounded-2xl z-10 flex flex-col items-center justify-center p-8 text-center border border-[var(--panel-border-glow)]">
+                        <div class="w-20 h-20 rounded-full border border-[#28C76F] bg-[rgba(40,199,111,0.1)] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(40,199,111,0.3)]">
+                            <i class="fas fa-check text-4xl text-[#28C76F]"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">¡Enviado!</h3>
+                        <p class="text-[var(--text-body)] text-sm">Gracias por escribirnos. Nos pondremos en contacto pronto.</p>
+                    </div>
+
+                    <form id="formularioContacto" class="space-y-5">
+                        <div>
+                            <label for="nombre" class="block text-xs font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wide">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"
+                                class="glass-input w-full px-4 py-3 rounded-xl text-sm">
+                        </div>
+
+                        <div>
+                            <label for="telefono" class="block text-xs font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wide">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+51 999 999 999"
+                                class="glass-input w-full px-4 py-3 rounded-xl text-sm">
+                        </div>
+
+                        <div>
+                            <label for="correoelectronico" class="block text-xs font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wide">Correo Electrónico</label>
+                            <input type="email" id="correoelectronico" name="correoelectronico" required placeholder="tucorreo@ejemplo.com"
+                                class="glass-input w-full px-4 py-3 rounded-xl text-sm">
+                        </div>
+
+                        <div>
+                            <label for="mensaje" class="block text-xs font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wide">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required rows="4" placeholder="¿Cómo podemos ayudarte?"
+                                class="glass-input w-full px-4 py-3 rounded-xl text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" id="btnEnviar" 
+                            class="pill-button w-full mt-4 py-3.5 text-base justify-center hover:shadow-[0_0_20px_rgba(168,85,247,0.5)]">
+                            <span>Enviar Mensaje</span>
+                            <svg id="spinner" class="hidden animate-spin h-5 w-5 text-white ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-brand-dark text-white py-6 text-center border-t-4 border-brand-lilac">
-        <p class="font-semibold">© 2026 Sheila Batallanos. Diseñadora Gráfica.</p>
+    <!-- Footer -->
+    <footer class="border-t border-[var(--panel-border)] bg-[rgba(13,6,32,0.8)] backdrop-blur-lg py-12 text-center mt-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-black mb-2 tracking-tighter gradient-text inline-block">SHEILA.</h2>
+            <p class="text-[var(--text-muted)] text-sm mb-8">Diseñadora Gráfica • Arequipa, Perú</p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://instagram.com/Sheyla_BC" target="_blank" class="w-10 h-10 rounded-full border border-[var(--panel-border)] bg-[rgba(255,255,255,0.03)] flex items-center justify-center text-[var(--text-muted)] hover:text-white hover:border-[var(--panel-border-glow)] hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] transition-all"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/51910997600" target="_blank" class="w-10 h-10 rounded-full border border-[var(--panel-border)] bg-[rgba(255,255,255,0.03)] flex items-center justify-center text-[var(--text-muted)] hover:text-white hover:border-[var(--panel-border-glow)] hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] transition-all"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:Shbatallanos@gmail.com" class="w-10 h-10 rounded-full border border-[var(--panel-border)] bg-[rgba(255,255,255,0.03)] flex items-center justify-center text-[var(--text-muted)] hover:text-white hover:border-[var(--panel-border-glow)] hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] transition-all"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="text-xs text-[var(--text-body)]/40 font-light">© 2026 Sheila Batallanos. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
+    <!-- JavaScript Lógica -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
+            // Lógica Menú Hamburguesa
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
-            
-            // Toggle Mobile Menu
+
             function toggleMenu() {
-                hamburgerBtn.classList.toggle('hamburger-active');
-                
-                // Toggle slide effect
-                if (mobileMenu.classList.contains('menu-open')) {
-                    mobileMenu.classList.remove('menu-open');
-                    document.body.style.overflow = ''; // Restore scrolling
-                } else {
+                if (mobileMenu.classList.contains('menu-closed')) {
+                    mobileMenu.classList.remove('menu-closed');
                     mobileMenu.classList.add('menu-open');
-                    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('menu-closed');
+                    mobileMenu.classList.remove('menu-open');
+                    document.body.style.overflow = 'auto';
                 }
             }
 
-            hamburgerBtn.addEventListener('click', toggleMenu);
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
 
-            // Close menu when a link is clicked
             mobileLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    toggleMenu();
+                    setTimeout(toggleMenu, 300);
                 });
             });
 
-            // Close menu on resize if screen becomes large
             window.addEventListener('resize', () => {
                 if (window.innerWidth >= 768 && mobileMenu.classList.contains('menu-open')) {
                     toggleMenu();
@@ -508,7 +542,7 @@
             const formularioContacto = document.getElementById('formularioContacto');
             if (formularioContacto) {
                 formularioContacto.addEventListener('submit', async function(e) {
-                    e.preventDefault(); // Prevenir el comportamiento por defecto
+                    e.preventDefault();
 
                     const form = this;
                     const btnEnviar = document.getElementById('btnEnviar');
@@ -516,48 +550,34 @@
                     const spinner = document.getElementById('spinner');
                     const alertaExito = document.getElementById('alertaExito');
                     
-                    // Cambiar estado del botón a "Enviando..." y deshabilitar
+                    // Cambiar estado a cargando
                     btnTexto.textContent = "Enviando...";
                     spinner.classList.remove('hidden');
                     btnEnviar.disabled = true;
-                    btnEnviar.classList.add('opacity-70', 'cursor-not-allowed');
+                    btnEnviar.style.opacity = '0.7';
 
-                    // Crear el FormData
                     const formData = new FormData(form);
-                    
-                    // URL de Google Apps Script
                     const scriptURL = "https://script.google.com/macros/s/AKfycbyw8raYPBzyKQi8DFNm1AD8y4qGa4sPUdMViM8eMS5ovmsRG62iS-v95PXbgaPBDWDe/exec";
 
                     try {
-                        // Usar fetch para enviar la data
-                        const response = await fetch(scriptURL, {
-                            method: 'POST',
-                            body: formData
-                        });
+                        const response = await fetch(scriptURL, { method: 'POST', body: formData });
 
                         if (response.ok) {
-                            // Éxito: Limpiar form y mostrar alerta
                             form.reset();
-                            
-                            // Mostrar alerta de éxito
                             alertaExito.classList.remove('hidden');
-                            
-                            // Ocultar la alerta después de 4 segundos
-                            setTimeout(() => {
-                                alertaExito.classList.add('hidden');
-                            }, 4000);
+                            setTimeout(() => { alertaExito.classList.add('hidden'); }, 4000);
                         } else {
-                            throw new Error('Network response was not ok.');
+                            throw new Error('Network error.');
                         }
                     } catch (error) {
-                        console.error('Error al enviar el formulario:', error);
-                        alert("Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.");
+                        console.error('Error:', error);
+                        alert("Hubo un problema. Por favor, intenta nuevamente.");
                     } finally {
-                        // Devolver el botón a su estado normal
+                        // Restaurar botón
                         btnTexto.textContent = "Enviar Mensaje";
                         spinner.classList.add('hidden');
                         btnEnviar.disabled = false;
-                        btnEnviar.classList.remove('opacity-70', 'cursor-not-allowed');
+                        btnEnviar.style.opacity = '1';
                     }
                 });
             }
